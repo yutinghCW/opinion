@@ -1,0 +1,15 @@
+.subchannel-list {
+    padding: 10px 0 0;
+    font-size: 0;
+    text-align: center;
+    li {
+        display: inline-block;
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+        a {
+            @include text-link($red);
+        }
+    }
+}

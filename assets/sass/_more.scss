@@ -1,0 +1,9 @@
+.more {
+    margin-top: 40px;
+    text-align: center;
+    a {
+        display: inline-block;
+        font-weight: 500;
+        @include btn-fill-large($purple-dark);
+    }
+}

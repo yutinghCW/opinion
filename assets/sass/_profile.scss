@@ -1,0 +1,66 @@
+.authorIntroduce {
+    margin: 0 0 40px;
+    font-size: 0;
+    @include breakpoint(1024px) {
+        margin: 0 100px 40px;
+    }
+    .authorimg {
+        @include breakpoint(1024px) {
+            display: inline-block;
+            vertical-align: top;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            @include border-radius(50%);
+            @include breakpoint(max-width 1023px) {
+                margin: auto;
+            }
+        }
+    }
+    .author-txt {
+        font-size: 1rem;
+        text-align: justify;
+        @include breakpoint(1024px) {
+            display: inline-block;
+            vertical-align: top;
+            width: calc(100% - 150px);
+            padding-left: 50px;
+        }
+        h4 {
+            color: $text;
+            @include serif();
+            font-size: 1.75rem;
+            font-weight: 400;
+            @include breakpoint(max-width 1023px) {
+                text-align: center;
+            }
+        }
+        h5 {
+            margin-bottom: 20px;
+            color: $purple-dark;
+            font-size: 1.125rem;
+            font-weight: 500;
+            @include breakpoint(max-width 1023px) {
+                text-align: center;
+            }
+        }
+        a {
+            @include text-link($red);
+        }
+    }
+}
+
+.submitIntroduce {
+    text-align: center;
+    h1::after {
+        @include beforeafter('', block);
+        width: 20px;
+        margin: 40px auto 30px;
+        border-bottom: 5px solid $red;
+    }
+    p {
+        font-size: 1.125rem;
+    }
+}

@@ -1,0 +1,17 @@
+.index-page,
+.article-page {
+    .main-content {
+        max-width: 100%;
+        flex: auto;
+        @include breakpoint(1200px) {
+            max-width: calc(100% - 330px);
+        }
+    }
+    .side {
+        max-width: 330px;
+        flex: auto;
+        @include breakpoint(max-width 1199px) {
+            display: none;
+        }
+    }
+}

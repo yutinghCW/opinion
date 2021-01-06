@@ -1,0 +1,78 @@
+.theme-container {
+    .theme-item {
+        @include breakpoint(max-width 767px) {
+            margin-left: -20px;
+            margin-right: -20px;
+            margin-bottom: 5px;
+        }
+        @include breakpoint(768px) {
+            margin-bottom: 2px;
+        }
+        >a {
+            display: block;
+            font-size: 0;
+            &::after {
+                @include clear();
+            }
+            .theme-img {
+                height: 350px;
+                padding: 0;
+                @include breakpoint(768px) {
+                    width: 60%;
+                }
+                img {
+                    width: 100%;
+                    height: 350px;
+                    object-fit: cover;
+                }
+            }
+            .theme-txt {
+                padding: 20px;
+                background-color: $text;
+                @include transition(background 0.3s);
+                @include breakpoint(768px) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40%;
+                    height: 350px;
+                    padding: 40px;
+                }
+                h3 {
+                    margin-bottom: 15px;
+                    color: $white;
+                    @include serif();
+                    font-size: 1.75rem;
+                    line-height: 1.35;
+                }
+                p {
+                    color: $white;
+                    font-size: 1rem;
+                    font-weight: 300;
+                    @include lineclamp(6);
+                }
+            }
+        }
+        &:hover .theme-txt {
+            background-color: $purple-dark;
+        }
+        @include breakpoint(768px) {
+            &:nth-child(even) {
+                .theme-img {
+                    float: right;
+                }
+                .theme-txt {
+                    float: left;
+                }
+            }
+            &:nth-child(odd) {
+                .theme-img {
+                    float: left;
+                }
+                .theme-txt {
+                    float: right;
+                }
+            }
+        }
+    }
+}

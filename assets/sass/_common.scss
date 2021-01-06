@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500,700|Noto+Serif+TC:200,300,400,500,600,700|Roboto:300,400,500,700&display=swap&subset=chinese-traditional');
+body {
+    position: relative;
+    padding-top: 55px;
+    @include sans();
+    line-height: 1.7;
+    background-color: $gray-100;
+    @include breakpoint(1024px) {
+        padding-top: 117px;
+    }
+    &.opened {
+        overflow: hidden;
+    }
+}
+
+h1,
+h2 {
+    @include serif();
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    @include transition(color 0.3s, background-color 0.3s, border-color 0.3s);
+}
+
+img {
+    display: block;
+    // width: 100%;
+}
+
+* {
+    @include box-sizing(border-box);
+    &::before,
+    &::after {
+        @include box-sizing(border-box);
+    }
+}
+
+.desktop {
+    @include breakpoint(max-width 1023px) {
+        display: none;
+    }
+}
+
+.mobile {
+    @include breakpoint(1024px) {
+        display: none;
+    }
+}
+
+.wrapper {
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 10px 0;
+    &.title {
+        margin-top: 0;
+        line-height: 1.5;
+    }
+    &.page-title {
+        text-align: center;
+    }
+}
+
+input,
+button {
+    &:focus {
+        outline: 0;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+@include breakpoint(max-width 1023px) {
+     ::-webkit-input-placeholder {
+        color: $gray-300;
+    }
+     :-moz-placeholder {
+        color: $gray-300;
+    }
+     ::-moz-placeholder {
+        color: $gray-300;
+    }
+     :-ms-input-placeholder {
+        color: $gray-300;
+    }
+}
+
+.list-link {
+    margin: 20px 0;
+    padding: 10px 20px;
+    h3 {
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.5rem;
+        font-weight: normal;
+        text-align: center;
+    }
+    li {
+        position: relative;
+        padding: 20px 0 20px;
+        +li {
+            border-top: 1px solid;
+        }
+        h4 {
+            position: absolute;
+            font-size: 1.875rem;
+            // font-weight: 300;
+            line-height: 1;
+        }
+        a {
+            display: block;
+            padding-left: 1.875rem;
+            font-size: 1rem;
+        }
+    }
+}

@@ -1,0 +1,118 @@
+.index-page {
+    .container {
+        @include breakpoint(1200px) {
+            max-width: 1320px;
+        }
+    }
+    header .menu {
+        @include breakpoint(1200px) {
+            padding: 0 calc((100% - 1320px) / 2);
+        }
+    }
+    .cookies {
+        .container {
+            @include breakpoint(1200px) {
+                max-width: 1005px;
+            }
+        }
+    }
+    .wrapper {
+        @include breakpoint(max-width 1199px) {
+            padding-top: 0;
+        }
+    }
+    .list-link {
+        background-color: $purple-dark;
+        h3 {
+            color: $gray-300;
+        }
+        li {
+            +li {
+                border-color: $gray-400;
+            }
+            h4 {
+                color: $gray-300;
+            }
+            a {
+                color: $white;
+            }
+        }
+    }
+    .swiper-lefttxt .swiper-stxt h1 {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: #333;
+        text-align: justify;
+    }
+}
+
+.submit {
+    position: relative;
+    margin-bottom: 40px;
+    &::before,
+    &::after {
+        @include beforeafter('', block);
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+    &::before {
+        top: 100%;
+        left: 0;
+        border-width: 22px 18px 0 0;
+        border-color: $purple-dark transparent transparent transparent;
+    }
+    &::after {
+        top: calc(100% - 4px);
+        left: 2px;
+        border-width: 20px 16px 0 0;
+        border-color: $gray-100 transparent transparent transparent;
+        @include translateY(2.5%);
+    }
+    .submit-top {
+        padding: 7px 15px 5px;
+        color: $gray-200;
+        font-size: 1.125rem;
+        background-color: $purple-dark;
+    }
+    .submit-box {
+        border: 2px solid $purple-dark;
+        padding: 15px;
+        p {
+            color: $purple-dark;
+            font-size: 1.125rem;
+            line-height: 1.35;
+            span {
+                display: inline-block;
+                padding-right: 0.5rem;
+                color: $red;
+                font-size: 3rem;
+                font-weight: 600;
+            }
+        }
+        h4 {
+            margin-top: 40px;
+            color: $purple-dark;
+            font-size: 1rem;
+            font-weight: 400;
+            text-align: right;
+            i.fa {
+                position: relative;
+                margin-left: 0.25rem;
+                @include transition(all 0.3s);
+            }
+        }
+    }
+    &:hover {
+        .submit-box h4 i.fa {
+            left: 0.25rem;
+        }
+    }
+}
+
+.banner-sideR {
+    margin: 20px 0 0;
+}

@@ -1,0 +1,68 @@
+.cookies {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    width: calc(100% - 40px);
+    max-width: 785px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 0;
+    line-height: 1.5;
+    background-color: $white;
+    border: 1px solid $gray-200;
+    @include translateX(-50%);
+    z-index: 10;
+    @media screen and (min-width: 992px) and (max-width: 1023px) {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    @media screen and (max-width: 375px) {
+        width: calc(100% - 30px);
+        bottom: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    .cookies-txt {
+        @include breakpoint(max-width 629px) {
+            font-size: 0.8125rem;
+        }
+        @include breakpoint(630px) {
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(100% - 3.5rem - 45px);
+            padding-right: 20px;
+            font-size: 0.875rem;
+        }
+        @include breakpoint(825px) {
+            width: 640px;
+        }
+        a {
+            @include text-link($red);
+        }
+    }
+    .cookies-a {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        @include breakpoint(max-width 629px) {
+            font-size: 0.8125rem;
+        }
+        @include breakpoint(max-width 767px) {
+            margin-top: 15px;
+        }
+        @include breakpoint(630px) {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 0.875rem;
+        }
+        a {
+            display: block;
+            @include btn-contained($white, $purple-dark);
+        }
+    }
+}

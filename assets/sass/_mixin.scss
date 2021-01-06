@@ -1,0 +1,66 @@
+@mixin serif() {
+    font-family: 'Noto Serif TC', serif;
+}
+
+@mixin sans() {
+    font-family: 'Roboto', 'Noto Sans TC', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', '新細明體', 'PMingLiU', sans-serif;
+}
+
+@mixin beforeafter($content, $display) {
+    content: $content;
+    display: $display;
+}
+
+@mixin clear {
+    @include beforeafter('', block);
+    clear: both;
+}
+
+@mixin ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@mixin lineclamp($line) {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@mixin listyle($margin, $padding, $style) {
+    margin: $margin;
+    padding: $padding;
+    list-style: $style;
+}
+
+@mixin text-link($color) {
+    // display: inline-block;
+    color: $text;
+    border-bottom: 1px solid $color;
+    &:hover {
+        color: $color;
+    }
+}
+
+@mixin btn-contained($color, $background) {
+    padding: 5px 20px;
+    color: $color;
+    background-color: $background;
+    border: 2px solid $background;
+    &:hover {
+        color: $background;
+        background-color: $color;
+    }
+}
+
+@mixin btn-fill-large($color) {
+    padding: 8px 50px;
+    color: $color;
+    border: 2px solid $color;
+    &:hover {
+        color: $white;
+        background-color: $color;
+    }
+}

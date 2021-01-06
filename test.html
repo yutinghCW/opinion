@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        picture {
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <picture>
+        <source type="image/webp" media="(max-width: 414px)" data-srcset="assets/images/test-img-article-main-600.webp" />
+        <source type="image/webp" media="(min-width: 1024px)" data-srcset="assets/images/test-img-article-main-1300.webp" />
+        <source type="image/webp" media="(min-width: 415px)" data-srcset="assets/images/test-img-article-main-900.webp" />
+        <source type="image/webp" data-srcset="assets/images/test-img-article-main-600.webp 600w, assets/images/test-img-article-main-900.webp 900w, assets/images/test-img-article-main-1300.webp 1300w" />
+        <img class="lazyload" src="assets/images/blank-7by5.png" data-srcset="assets/images/test-img-article-main-600.jpg 600w, assets/images/test-img-article-main-900.jpg 900w, assets/images/test-img-article-main-1300.jpg 1300w" data-src="assets/images/test-img-article-main-1300.jpg" width="100%" alt="">
+    </picture>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/lazysizes.min.js"></script>
+</body>
+
+</html>

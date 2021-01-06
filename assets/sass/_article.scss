@@ -1,0 +1,365 @@
+.article-page {
+	padding-bottom: 35px;
+	.list-link {
+		background-color: $white;
+		h3 {
+			color: $purple-dark;
+		}
+		li {
+			+ li {
+				border-color: $purple-dark;
+			}
+			h4 {
+				color: $purple-dark;
+			}
+			a {
+				color: $text;
+				&:hover {
+					color: $purple-light;
+				}
+			}
+		}
+	}
+	.fixed-top {
+		position: sticky;
+		top: 88px;
+		left: 0;
+		padding-top: 1px;
+	}
+	.socialBTN {
+		margin-bottom: 10px;
+		font-size: 0;
+		> * {
+			display: block;
+			@include breakpoint(1024px) {
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+		ul {
+			margin-bottom: 10px;
+			@include breakpoint(1024px) {
+				padding-right: 10px;
+			}
+			li {
+				display: inline-block;
+				a {
+					display: block;
+					padding: 5px 10px;
+					border: 1px solid transparent;
+					img {
+						width: auto;
+						height: 1.75rem;
+					}
+					&:hover {
+						background-color: $white;
+						border-color: $gray-300;
+					}
+				}
+			}
+		}
+		.fb-like-iframe {
+			@include breakpoint(max-width 1023px) {
+				margin-top: 10px;
+			}
+			@include breakpoint(1024px) {
+				height: 22px;
+			}
+		}
+	}
+	.article-title {
+		width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-bottom: 20px;
+		@include breakpoint(1024px) {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+		a {
+			color: $text;
+			&:hover {
+				color: $red;
+			}
+		}
+		.article-channel {
+			color: $gray-400;
+			&::after {
+				@include beforeafter("", block);
+				width: 22px;
+				height: 5px;
+				margin: 10px 0 20px;
+				background-color: $red;
+			}
+		}
+		.article-info {
+			position: relative;
+			margin-top: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.article-time {
+				// position: absolute;
+				// top: 50%;
+				// right: 0;
+				color: $gray-400;
+				font-size: 0.75rem;
+				// @include translateY(-50%);
+			}
+		}
+		.article-author {
+			a {
+				margin-left: 5px;
+			}
+		}
+	}
+	.article-header {
+		padding-bottom: 25px;
+		.img-txt,
+		.source {
+			display: inline-block;
+			margin: 0;
+			font-size: 0.875rem;
+			color: $gray-400;
+		}
+	}
+	.article-summary {
+		width: 100%;
+		margin: 2em 0;
+		color: $purple-dark;
+		font-family: "Noto Serif TC", serif;
+		font-size: 1.125rem;
+		font-weight: 500;
+		line-height: 1.9;
+		text-align: justify;
+		a {
+			@include text-link($red);
+		}
+	}
+	article {
+		color: $text;
+		font-size: 1.125rem;
+		@include breakpoint(1024px) {
+			font-weight: 200;
+		}
+		.article-body {
+			word-break: break-word;
+			em {
+				font-style: italic;
+			}
+			h3 {
+				color: $text;
+				@include serif();
+				font-size: 1.5rem;
+				font-weight: 600;
+				line-height: 1.5;
+			}
+			p {
+				margin: 2em 0;
+				line-height: 1.9;
+				text-align: justify;
+				&.page-view {
+					font-size: 1rem;
+				}
+			}
+			a {
+				color: $text !important;
+				font-weight: 500;
+				text-decoration: none !important;
+				border-bottom: 1px solid $red !important;
+				&:hover {
+					color: $red;
+				}
+				span {
+					color: $text !important;
+					text-decoration: none !important;
+				}
+			}
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+				margin: auto;
+				margin-bottom: 10px;
+				@include breakpoint(768px) {
+					width: 80%;
+					&.img-L {
+						width: 100%;
+					}
+					&.img-S {
+						width: 50%;
+					}
+				}
+			}
+			.source {
+				display: block;
+				margin: 0 auto 10px;
+				font-size: 0.875rem;
+				color: $gray-400;
+				line-height: 1.35;
+				text-align: center;
+			}
+			blockquote {
+				position: relative;
+				margin: 3em;
+				color: $text;
+				@include serif();
+				font-weight: 400;
+				&::before,
+				&::after {
+					position: absolute;
+					color: $red;
+					font-size: 40px;
+					font-weight: 200;
+				}
+				&::before {
+					@include beforeafter("「", table);
+					left: -50px;
+					top: -23px;
+				}
+				&::after {
+					@include beforeafter("」", table);
+					right: -40px;
+					bottom: -18px;
+				}
+			}
+			iframe {
+				display: block;
+				margin: auto;
+				width: 560px;
+				height: 315px;
+			}
+		}
+	}
+	.program {
+		display: flex;
+		padding: 30px 20px;
+		margin: 2em auto;
+		background-color: $purple-dark;
+		.program-icon {
+			img {
+				width: auto;
+				height: 70px;
+			}
+			@include breakpoint(max-width 767px) {
+				display: none;
+			}
+		}
+		.program-txt {
+			@include breakpoint(768px) {
+				padding-left: 20px;
+			}
+		}
+		h4 {
+			display: inline-block;
+			padding: 0 8px;
+			margin-bottom: 10px;
+			color: $white;
+			font-size: 1rem;
+			background-color: $red;
+		}
+		h5 {
+			margin: 10px 0;
+			color: $white;
+			font-size: 1rem;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			a {
+				color: $white;
+				&:hover {
+					@include opacity(0.8);
+				}
+			}
+		}
+	}
+	.recommend-list,
+	.more-list {
+		margin-top: 20px;
+		margin-bottom: 40px;
+		h4 {
+			margin-bottom: 5px;
+			color: $gray-400;
+			font-size: 1.125rem;
+			font-weight: 400;
+		}
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			justify-content: flex-start;
+			li {
+				width: 100%;
+				@include breakpoint(1024px) {
+					width: calc((100% - 20px) / 3);
+				}
+				+ li {
+					@include breakpoint(1024px) {
+						margin-left: 10px;
+					}
+					@include breakpoint(max-width 1023px) {
+						margin-top: 20px;
+					}
+				}
+				img {
+					width: 100%;
+					height: 130px;
+					object-fit: cover;
+					@include background-size(contain);
+				}
+				a {
+					display: block;
+					color: $text;
+					@include serif();
+					line-height: 1.5;
+					&:hover {
+						color: $red;
+					}
+				}
+				.interest-list-link-title {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+	.list-keyword {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		ul {
+			display: inline-block;
+			font-size: 0;
+			li {
+				display: inline-block;
+				padding-left: 10px;
+				padding-right: 10px;
+				font-size: 1rem;
+				a {
+					display: inline-block;
+					color: $red;
+					border-bottom: 2px solid $text;
+					&:hover {
+						color: $text;
+					}
+				}
+			}
+		}
+	}
+	.mobile-display {
+		@include breakpoint(1024px) {
+			display: none;
+		}
+	}
+	section.fb-comments {
+		width: 100%;
+		margin-top: 60px;
+	}
+	section.remarks {
+		width: 100%;
+		margin-top: 60px;
+		h6 {
+			margin: 0.5em 0;
+			color: $gray-400;
+			font-size: 0.875rem;
+		}
+	}
+}
