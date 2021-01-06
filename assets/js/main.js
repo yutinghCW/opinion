@@ -1,13 +1,3 @@
-function lazyload() {
-    $("img.lazyload").each(function() {
-        $(this).lazyload();
-        $(this).on('load', function() {
-            $(this).parent().addClass('finished');
-        })
-    });
-}
-// lazyload();
-
 $(document).on('lazyloaded', function(e){
     $(".lazy-item").each(function() {
         $(this).addClass('finished');
