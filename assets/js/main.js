@@ -50,10 +50,6 @@ $(function() {
             $(this).children('.fb-like-iframe').css({
                 'width': social - ulWidth - 3
             });
-        } else {
-            $(this).children('.fb-like-iframe').css({
-                'width': '100%'
-            });
         }
     });
     $('.author .author-txt').each(function() {
@@ -88,7 +84,9 @@ $(function() {
             $('body').css('padding-top', headerHeight);
         });
         $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
+            var scroll = $(window).scrollTop(),
+                articleTitle = $(".article-page .article-title .title"),
+                articleTitleTop = articleTitle.offset().top;
             $('.fixed-top').css('top', headerHeight - headerMenuHeight);
             $('body').css('padding-top', headerHeight);
             if ((scroll > headerHeight) && (width >= 1024)) {
@@ -97,6 +95,13 @@ $(function() {
             } else {
                 $("header").removeClass('scroll');
                 $(".menu").show();
+            }
+            if ((scroll > articleTitleTop) && (width < 1024)) {
+                $(".socialBTN").addClass('show');
+                console.log('a');
+            } else {
+                $(".socialBTN").removeClass('show');
+                console.log('n');
             }
         });
     });

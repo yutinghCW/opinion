@@ -1,0 +1,73 @@
+.socialBTN {
+    font-size: 0;
+    @include breakpoint(1024px) {
+        margin-bottom: 10px;
+    }
+    @include breakpoint(max-width 1023px) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px 5px 20px;
+        text-align: center;
+        border-top: 1px solid $gray-200;
+        background-color: rgba($white, 0.9);
+        backdrop-filter: blur(3px);
+        @include translateY(100%);
+        @include transition(transform 0.3s);
+        z-index: 6;
+        &.show {
+            @include translateY(0%);
+        }
+    }
+    > * {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    ul {
+        @include breakpoint(1024px) {
+            padding-right: 10px;
+        }
+        li {
+            display: inline-block;
+            a {
+                display: block;
+                padding: 5px;
+                border: 1px solid transparent;
+                @include breakpoint(375px) {
+                    padding: 5px 10px;
+                }
+                img {
+                    width: auto;
+                    height: 1.75rem;
+                }
+                &:hover {
+                    background-color: $white;
+                    border-color: $gray-300;
+                }
+            }
+        }
+    }
+    .fb-like-iframe {
+        @include breakpoint(max-width 1023px) {
+            &.desktop {
+                display: none;
+            }
+        }
+        @include breakpoint(1024px) {
+            height: 22px;
+            &.mobile {
+                display: none;
+            }
+        }
+        @include breakpoint(max-width 374px) {
+            margin-right: 5px;
+        }
+    }
+}
+
+.article-body + .social {
+    @include breakpoint(max-width 1023px) {
+        display: none;
+    }
+}
