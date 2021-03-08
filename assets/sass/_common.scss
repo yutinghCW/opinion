@@ -21,7 +21,7 @@ h2 {
 a {
     text-decoration: none;
     cursor: pointer;
-    @include transition(color 0.3s, background-color 0.3s, border-color 0.3s);
+    @include transition(color 0.3s, background-color 0.3s, border-color 0.3s, opacity 0.3s);
 }
 
 img {

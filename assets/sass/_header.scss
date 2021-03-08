@@ -246,12 +246,18 @@ header {
                 display: block;
                 color: $white;
                 font-size: 1rem;
+                i.fa {
+                    margin-right: 5px;
+                    @include transition(all 0.3s);
+                }
                 @include breakpoint(max-width 1023px) {
                     line-height: 3.125;
                 }
                 @include breakpoint(1024px) {
-                    padding: 5px;
+                    padding: 3px 8px 2px calc(8px + 0.2em);
                     font-size: 0.875rem;
+                    letter-spacing: 0.2em;
+                    border: 2px solid $white;
                     @include opacity(0.6);
                     &:hover {
                         @include opacity(1);
@@ -260,18 +266,12 @@ header {
             }
             &.header-submit {
                 @include breakpoint(1024px) {
-                    margin-left: 15px;
                     a {
-                        padding: 2px 8px 2px calc(8px + 0.2em);
-                        color: $white;
-                        border: 2px solid $red;
-                        letter-spacing: 0.2em;
-                        @include opacity(1);
+                        border-color: $red;
                         i.fa {
-                            margin-right: 5px;
                             color: $red;
-                            @include transition(all 0.3s);
                         }
+                        @include opacity(1);
                         &:hover {
                             color: $white;
                             background-color: $red;
@@ -279,11 +279,6 @@ header {
                                 color: $white;
                             }
                         }
-                    }
-                }
-                @include breakpoint(max-width 1023px) {
-                    a i.fa {
-                        display: none;
                     }
                 }
             }

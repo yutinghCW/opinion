@@ -1,0 +1,68 @@
+.newsletter {
+    .newsletter-head {
+        padding: 50px 30px;
+        color: $purple-dark;
+        font-size: 1.5rem;
+        @include serif();
+        font-weight: bold;
+        text-align: center;
+        background-image: url('../images/newsletter.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        @include background-size(cover);
+    }
+    .newsletter-body {
+        padding: 30px;
+        background-color: $white;
+        p {
+            margin: 0 0 30px;
+            font-size: 1rem;
+        }
+        a.btn {
+            display: inline-block;
+            padding: 5px calc(15px - 0.05em) 5px 15px;
+            color: $white;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            background-color: $purple-dark;
+            border: 2px solid $purple-dark;
+            > * {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            i {
+                margin-right: 10px;
+            }
+            span {
+                font-weight: 500;
+            }
+            &:hover {
+                color: $purple-dark;
+                background-color: $white;
+            }
+        }
+    }
+    .index-page & {
+        .newsletter {
+            .newsletter-body {
+                background-color: $purple-dark;
+                p {
+                    color: $white;
+                }
+                a.btn {
+                    color: $purple-dark;
+                    background-color: $white;
+                    border-color: $purple-dark;
+                    &:hover {
+                        color: $white;
+                        background-color: $purple-dark;
+                        border-color: $white;
+                    }
+                }
+            }
+        }
+    }
+    .mobile-display & {
+        margin-top: 30px;
+    }
+}
