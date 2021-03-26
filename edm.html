@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<!-- utf-8 works for most cases -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Forcing initial-scale shouldn't be necessary -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Use the latest (edge) version of IE rendering engine -->
+	<title>EmailTemplate-Responsive</title>
+	<!-- The title tag shows in email notifications, like Android 4.4. -->
+	<!-- Please use an inliner tool to convert all CSS to inline as inpage or external CSS is removed by email clients -->
+	<!-- important in CSS is used to prevent the styles of currently inline CSS from overriding the ones mentioned in media queries when corresponding screen sizes are encountered -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@500;600;700&family=Roboto+Slab:wght@400;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+	<!-- CSS Reset -->
+	<style type="text/css">
+		/* What it does: Remove spaces around the email design added by some email clients. */
+		/* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+		html,
+		body {
+			margin: 0 !important; 
+			padding: 0 !important; 
+			height: 100% !important; 
+			width: 100% !important; 
+		}
+		/* What it does: Stops email clients resizing small text. */
+		* {
+			-ms-text-size-adjust: 100%; 
+			-webkit-text-size-adjust: 100%; 
+		}
+		/* What it does: Forces Outlook.com to display emails full width. */
+		.ExternalClass {
+			width: 100%; 
+		}
+		/* What is does: Centers email on Android 4.4 */
+		div[style*="margin: 16px 0"] {
+			margin: 0 !important; 
+		}
+		/* What it does: Stops Outlook from adding extra spacing to tables. */
+		table,
+		td {
+			mso-table-lspace: 0pt !important; 
+			mso-table-rspace: 0pt !important; 
+		}
+		/* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+		table {
+			border-spacing: 0 !important; 
+			border-collapse: collapse !important; 
+			table-layout: fixed !important; 
+			margin: 0 auto !important; 
+		}
+		table table table {
+			table-layout: auto; 
+		}
+		/* What it does: Uses a better rendering method when resizing images in IE. */
+		img {
+			-ms-interpolation-mode: bicubic; 
+		}
+		/* What it does: Overrides styles added when Yahoo's auto-senses a link. */
+		.yshortcuts a {
+			border-bottom: none !important; 
+		}
+		/* What it does: Another work-around for iOS meddling in triggered links. */
+		a[x-apple-data-detectors] {
+			color: inherit !important; 
+		}
+	</style>
+	<!-- Progressive Enhancements -->
+	<style type="text/css">
+		/* What it does: Hover styles for buttons */
+		.button-td,
+		.button-a {
+			transition: all 100ms ease-in; 
+		}
+		.button-td:hover,
+		.button-a:hover {
+			background: #555555 !important; 
+			border-color: #555555 !important; 
+		}
+		/* Media Queries */
+		@media screen and (max-width: 600px) {
+			.email-container {
+				width: 100% !important; 
+			}
+			/* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+			.fluid,
+			.fluid-centered {
+				max-width: 100% !important; 
+				height: auto !important; 
+				margin-left: auto !important; 
+				margin-right: auto !important; 
+			}
+			/* And center justify these ones. */
+			.fluid-centered {
+				margin-left: auto !important; 
+				margin-right: auto !important; 
+			}
+			/* What it does: Forces table cells into full-width rows. */
+			.stack-column,
+			.stack-column-center {
+				display: block !important; 
+				width: 100% !important; 
+				max-width: 100% !important; 
+				direction: ltr !important; 
+			}
+			/* And center justify these ones. */
+			.stack-column-center {
+				text-align: center !important; 
+			}
+			/* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+			.center-on-narrow {
+				text-align: center !important; 
+				display: block !important; 
+				margin-left: auto !important; 
+				margin-right: auto !important; 
+				float: none !important; 
+			}
+			table.center-on-narrow {
+				display: inline-block !important; 
+			}
+		}
+	</style>
+</head>
+<body bgcolor="#F2F2F2" width="100%" style="margin: 0;" yahoo="yahoo">
+	<table bgcolor="#F2F2F2" cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" style="border-collapse:collapse;">
+		<tr>
+			<td>
+				<center style="width: 100%;">
+					<!-- Visually Hidden Preheader Text : BEGIN -->
+					<div style="display:none; font-size:1px; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; mso-hide:all; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif;">
+						我是一個大家看不到的前言
+					</div>
+					<!-- Visually Hidden Preheader Text : END -->
+					<!-- Email Header : BEGIN -->
+					<table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="600" class="email-container">
+						<tr>
+							<td style="padding: 20px 6.6675%; line-height: 0; text-align: center;">
+								<img src="assets/images/edm/logo-vertical@3x.png" height="55" alt="獨立評論@天下 Logo" border="0">
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align: center">
+								<h2 style="margin: 0 0 5px; padding: 0 6.6675%; color: #313160; font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-size: 1.75rem;"><span style="display: inline-block;">移工，</span><span style="display: inline-block;">不是一群沒有聲音的人</span></h2>
+								<time style="margin-bottom: 10px; padding: 0 6.6675%; color: #777; font-size: 0.875rem;">2020-11-03</time>
+								<div style="margin: 10px 0; padding: 0 6.6675%; color: #000; font-size: 1rem; font-weight: 300; line-height: 1.7; text-align: left;">
+									已經連續辦了7年的移民工文學獎，將暫時畫上休止符。獨立評論在本屆得獎作品外特別加上其中四名<a href="#!" target="_blank" rel="noopener noreferrer" style="color: #313160;">得獎者的專訪</a>，期望這系列作品能成為台灣人認識外籍移工的一扇窗，看見他們在辛勤工作與語言藩籬之外精彩、細膩、生動的不同面貌。
+								</div>
+								<a href="#!" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin: 10px 0; padding: 7px 20px; color: #fff; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 0.875rem; text-decoration: none; background-color: #313160; border-radius: 5px;">閱讀數位專輯</a>
+								<img src="https://image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fopinion-cms-cwg-tw%2Farticle%2F202011%2Farticle-5fa0f99b9154b.jpg/?w=600" style="display: block; margin-top: 10px;" width="100%" border="0" alt="">
+							</td>
+						</tr>
+					</table>
+					<!-- Email Header : END -->
+					<!-- Gap : BEGIN -->
+					<div style="padding-top: 40px;"></div>
+					<!-- Gap : END -->
+					<!-- Email Body : BEGIN -->
+					<table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="600" class="email-container">
+						<!-- Title : BEGIN -->
+						<tr>
+							<td>
+								<table cellspacing="0" cellpadding="0" border="0" align="center" width="240">
+									<tr>
+										<td style="width: 27.5%; color: #313160; font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 7.5rem; line-height: 1; white-space: nowrap;">
+											1
+										</td>
+										<td style="width: 72.5%; padding-top: 1.5rem; color: #313160; white-space: nowrap;">
+											<div style="font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 1rem;">首獎／青少年評審獎</div>
+											<div style="font-family: 'Noto Serif TC', '思源宋體 TC', '思源宋體 TW', '思源宋體', serif; font-weight: bold; font-size: 1.5rem;">殯儀館前鳥鳴聲</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!-- Title : END -->
+						<!-- Hero Image, Flush : BEGIN -->
+						<tr>
+							<td class="full-width-image">
+								<img src="assets/images/edm/Image_600x300.png" width="600" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px; height: auto;">
+							</td>
+						</tr>
+						<!-- Hero Image, Flush : END -->
+						<!-- 1 Column Text : BEGIN -->
+						<tr>
+							<td style="padding: 40px; text-align: center; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
+								Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora
+								torquent per conubia nostra, per inceptos himenaeos. Praesent laoreet malesuada cursus. Maecenas
+								scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp; erat.
+								<br>
+								<br>
+								<!-- Button : Begin -->
+								<table cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto">
+									<tr>
+										<td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td">
+											<a href="http://www.google.com" style="background: #222222; border: 15px solid #222222; padding: 0 10px; color: #ffffff; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a">
+												<!--[if mso]>&nbsp; &nbsp; &nbsp; &nbsp; <![endif]-->A Button<!--[if mso]>&nbsp; &nbsp; &nbsp; &nbsp; <![endif]-->
+											</a>
+										</td>
+									</tr>
+								</table>
+								<!-- Button : END -->
+							</td>
+						</tr>
+						<!-- 1 Column Text : BEGIN -->
+						<!-- Background Image with Text : BEGIN -->
+						<tr>
+							<td background="assets/images/edm/Image_600x230.png" bgcolor="#222222" valign="middle"
+								style="text-align: center; background-position: center center !important; background-size: cover !important;">
+								<!--[if gte mso 9]>
+									<v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px; height:175px; background-position: center center !important;"><v:fill type="tile" src="assets/Responsive/Image_600x230.png" color="#222222" /><v:textbox inset="0,0,0,0">
+								<![endif]-->
+								<div>
+									<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+										<tr>
+											<td valign="middle" style="text-align: center; padding: 40px; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #ffffff;">
+												Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad
+												litora torquent per conubia nostra, per inceptos himenaeos. Praesent laoreet malesuada cursus.
+												Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus
+												ut&nbsp; erat.
+											</td>
+										</tr>
+									</table>
+								</div>
+								<!--[if gte mso 9]>
+									</v:textbox></v:rect>
+								<![endif]-->
+							</td>
+						</tr>
+						<!-- Background Image with Text : END -->
+						<!-- Two Even Columns : BEGIN -->
+						<tr>
+							<td align="center" valign="top" style="padding: 10px;">
+								<table cellspacing="0" cellpadding="0" border="0" width="100%">
+									<tr>
+										<td class="stack-column-center">
+											<table cellspacing="0" cellpadding="0" border="0">
+												<tr>
+													<td style="padding: 10px; text-align: center">
+														<img src="assets/images/edm/Image_270x270.png" width="270" height="270" alt="alt_text" border="0" class="fluid">
+													</td>
+												</tr>
+												<tr>
+													<td style="font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding: 0 10px 10px; text-align: left;" class="center-on-narrow">
+														Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td class="stack-column-center">
+											<table cellspacing="0" cellpadding="0" border="0">
+												<tr>
+													<td style="padding: 10px; text-align: center">
+														<img src="assets/images/edm/Image_270x270.png" width="270" height="270" alt="alt_text" border="0" class="fluid">
+													</td>
+												</tr>
+												<tr>
+													<td style="font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding: 0 10px 10px; text-align: left;" class="center-on-narrow"> Maecenas sed ante pellentesque, posuere leo id, eleifend dolor.
+														Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!-- Two Even Columns : END -->
+						<!-- Three Even Columns : BEGIN -->
+						<tr>
+							<td align="center" valign="top" style="padding: 10px;">
+								<table cellspacing="0" cellpadding="0" border="0" width="100%">
+									<tr>
+										<td width="33.33%" class="stack-column-center">
+											<table cellspacing="0" cellpadding="0" border="0">
+												<tr>
+													<td style="padding: 10px; text-align: center">
+														<img src="assets/images/edm/Image_270x270.png" width="170" height="170" alt="alt_text" border="0" class="fluid">
+													</td>
+												</tr>
+												<tr>
+													<td style="font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding: 0 10px 10px; text-align: left;" class="center-on-narrow">
+														Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td width="33.33%" class="stack-column-center">
+											<table cellspacing="0" cellpadding="0" border="0">
+												<tr>
+													<td style="padding: 10px; text-align: center">
+														<img src="assets/images/edm/Image_170x170.png" width="170" height="170" alt="alt_text" border="0" class="fluid">
+													</td>
+												</tr>
+												<tr>
+													<td style="font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding: 0 10px 10px; text-align: left;" class="center-on-narrow">
+														Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td width="33.33%" class="stack-column-center">
+											<table cellspacing="0" cellpadding="0" border="0">
+												<tr>
+													<td style="padding: 10px; text-align: center">
+														<img src="assets/images/edm/Image_170x170.png" width="170" height="170" alt="alt_text" border="0" class="fluid">
+													</td>
+												</tr>
+												<tr>
+													<td style="font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding: 0 10px 10px; text-align: left;" class="center-on-narrow">
+														Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!-- Three Even Columns : END -->
+						<!-- Thumbnail Left, Text Right : BEGIN -->
+						<tr>
+							<td dir="ltr" align="center" valign="top" width="100%" style="padding: 10px;">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td width="33.33%" class="stack-column-center">
+											<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td dir="ltr" valign="top" style="padding: 0 10px;">
+														<img src="assets/images/edm/Image_170x170.png" width="170" alt="alt_text" border="0" class="center-on-narrow">
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td width="66.66%" class="stack-column-center">
+											<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td dir="ltr" valign="top" style="font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding: 10px; text-align: left;" class="center-on-narrow">
+														<strong style="color:#111111;">Class aptent taciti sociosqu</strong><br><br>Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br><br>
+														<!-- Button : Begin -->
+														<table cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
+															<tr>
+																<td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td">
+																	<a href="http://www.google.com" style="background: #222222; border: 15px solid #222222; padding: 0 10px; color: #ffffff; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a">
+																		<!--[if mso]>&nbsp; &nbsp; &nbsp; &nbsp; <![endif]-->A Button<!--[if mso]>&nbsp; &nbsp; &nbsp; &nbsp; <![endif]-->
+																	</a>
+																</td>
+															</tr>
+														</table>
+														<!-- Button : END -->
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!-- Thumbnail Left, Text Right : END -->
+						<!-- Thumbnail Right, Text Left : BEGIN -->
+						<tr>
+							<td dir="rtl" align="center" valign="top" width="100%" style="padding: 10px;">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td width="33.33%" class="stack-column-center">
+											<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td dir="ltr" valign="top" style="padding: 0 10px;">
+														<img src="assets/images/edm/Image_170x170.png" width="170" alt="alt_text" border="0" class="center-on-narrow">
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td width="66.66%" class="stack-column-center">
+											<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td dir="ltr" valign="top" style="font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555; padding: 10px; text-align: left;" class="center-on-narrow">
+														<strong style="color:#111111;">Class aptent taciti sociosqu</strong><br><br>Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br><br>
+														<!-- Button : Begin -->
+														<table cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
+															<tr>
+																<td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td">
+																	<a href="http://www.google.com" style="background: #222222; border: 15px solid #222222; padding: 0 10px; color: #ffffff; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a">
+																		<!--[if mso]>&nbsp; &nbsp; &nbsp; &nbsp; <![endif]-->A Button<!--[if mso]>&nbsp; &nbsp; &nbsp; &nbsp; <![endif]-->
+																	</a>
+																</td>
+															</tr>
+														</table>
+														<!-- Button : END -->
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<!-- Thumbnail Right, Text Left : END -->
+					</table>
+					<!-- Email Body : END -->
+					<!-- Email Footer : BEGIN -->
+					<table align="center" width="600" class="email-container">
+						<tr>
+							<td dir="ltr" style="padding: 40px 3.333%; width: 100%;">
+								<table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+									<tr>
+										<td class="stack-column-center" style="width: 8em; font-size: 0.875rem; text-align: center;">
+											<a href="https://www.facebook.com/opinion.cw" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0.5em 1em; color: #1877F2; font-size: 0.875rem; line-height: 1; background-color: #fff; border-radius: 5px;">
+												<img src="assets/images/edm/facebook-icon@3x.png" alt="Facebook Logo" width="20" style="display: inline-block; vertical-align: middle; margin-right: 0.5em;"><span style="display: inline-block; vertical-align: middle; line-height: 1.25rem;">追蹤獨評</span>
+											</a>
+										</td>
+										<td class="stack-column-center" style="width: 20px; height: 10px;"></td>
+										<td class="stack-column-center" style="text-align: left;">
+											<a href="http://opinion.cw.com.tw/" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0 10px 0 0; font-size: 0.875rem; color: #000; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; line-height: 1; mso-height-rule: exactly; text-decoration: none; border-right: 1px solid #000;">關於獨立評論@天下</a><a href="https://opinion.cw.com.tw/blog/profile/31/article/28" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0 10px; font-size: 0.875rem; color: #000; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; line-height: 1; mso-height-rule: exactly; text-decoration: none; border-right: 1px solid #000;">讀者投書</a><a href="tel:+886226620332" style="display: inline-block; padding: 0 10px; font-size: 0.875rem; color: #000; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; line-height: 1; mso-height-rule: exactly; text-decoration: none;">讀者服務專線 (02) 2662-0332</a>
+											<div style="display: inline-block; font-size: 0.875rem; color: #000; font-family: 'Roboto', 'Noto Sans TC', '思源黑體 TC', '思源黑體 TW', '思源黑體', '微軟正黑體', '繁黑體', 'Microsoft JhengHei', 'Lato', 'Arial', 'Segoe UI Emoji', 'Segoe UI Symbol', '新細明體', sans-serif; mso-height-rule: exactly;">Copyright © 2021 天下雜誌 All rights reserved.</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<!-- Email Footer : END -->
+				</center>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
