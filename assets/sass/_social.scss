@@ -1,9 +1,16 @@
 .socialBTN {
+    position: fixed;
     font-size: 0;
-    @include breakpoint(1024px) {
-        margin-bottom: 10px;
+    display: none;
+    @include breakpoint(992px) {
+        top: 50%;
+        left: calc((100% - 85%) / 2);
+        @include translate(-100%, -50%);
     }
-    @include breakpoint(max-width 1023px) {
+    @include breakpoint(1200px) {
+        left: calc((100% - 1005px) / 2);
+    }
+    @include breakpoint(max-width 991px) {
         position: fixed;
         bottom: 0;
         left: 0;
@@ -20,16 +27,27 @@
             @include translateY(0%);
         }
     }
+    &.show {
+        display: block;
+    }
     > * {
-        display: inline-block;
-        vertical-align: middle;
+        @include breakpoint(max-width 991px) {
+            display: inline-block;
+            vertical-align: middle;
+        }
     }
     ul {
-        @include breakpoint(1024px) {
-            padding-right: 10px;
+        @include breakpoint(992px) {
+            padding-bottom: 10px;
         }
         li {
-            display: inline-block;
+            position: relative;
+            @include breakpoint(max-width 991px) {
+                display: inline-block;
+            }
+            @include breakpoint(992px) {
+                margin-bottom: 5px;
+            }
             a {
                 display: block;
                 padding: 5px;
@@ -46,16 +64,47 @@
                     border-color: $gray-300;
                 }
             }
+            #cpoySuccess {
+                position: absolute;
+                display: none;
+                width: calc(7em + 40px);
+                padding: 10px 20px;
+                color: $white;
+                font-size: 1rem;
+                background-color: $gray-400;
+                @include breakpoint(max-width 991px) {
+                    bottom: 100%;
+                    left: 50%;
+                    margin-bottom: 20px;
+                    @include translateX(-50%);
+                }
+                @include breakpoint(992px) {
+                    top: 50%;
+                    left: 100%;
+                    margin-left: 10px;
+                    @include translateY(-50%);
+                }
+            }
         }
     }
     .fb-like-iframe {
-        @include breakpoint(max-width 1023px) {
+        @include breakpoint(max-width 991px) {
+            width: 54px !important;
+            height: 28px !important;
+            margin-right: 10px;
             &.desktop {
                 display: none;
             }
+            &.mobile {
+                display: inline-block;
+            }
         }
-        @include breakpoint(1024px) {
-            height: 22px;
+        @include breakpoint(992px) {
+            width: 50px !important;
+            height: 66px !important;
+            &.desktop {
+                display: block;
+            }
             &.mobile {
                 display: none;
             }
@@ -67,7 +116,7 @@
 }
 
 .article-body + .social {
-    @include breakpoint(max-width 1023px) {
+    @include breakpoint(max-width 991px) {
         display: none;
     }
 }

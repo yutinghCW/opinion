@@ -1,3 +1,33 @@
+function copyToClipboard(text) {
+	if (window.clipboardData && window.clipboardData.setData) {
+		// IE specific code path to prevent textarea being shown while dialog is visible.
+		return clipboardData.setData("Text", text);
+	} else if (
+		document.queryCommandSupported &&
+		document.queryCommandSupported("copy")
+	) {
+		var textarea = document.createElement("textarea");
+		textarea.textContent = text;
+		textarea.style.position = "fixed"; // Prevent scrolling to bottom of page in MS Edge.
+		document.body.appendChild(textarea);
+		textarea.select();
+		try {
+			return document.execCommand("copy"); // Security exception may be thrown by some browsers.
+		} catch (ex) {
+			console.warn("Copy to clipboard failed.", ex);
+			return false;
+		} finally {
+			document.body.removeChild(textarea);
+		}
+    }
+}
+function toggleMsg() {
+    $('#cpoySuccess').fadeIn();
+    setTimeout(function(){
+        $('#cpoySuccess').fadeOut();
+    }, 3000);
+}
+
 $(document).on('lazyloaded', function(e){
     $(".lazy-item").each(function() {
         $(this).addClass('finished');
@@ -43,15 +73,15 @@ $(function() {
         autoplay: 5500,
         autoplayDisableOnInteraction: false
     });
-    $('.socialBTN').each(function() {
-        var social = $(this).outerWidth(),
-            ulWidth = $(this).children('ul').outerWidth();
-        if (width >= 1024) {
-            $(this).children('.fb-like-iframe').css({
-                'width': social - ulWidth - 3
-            });
-        }
-    });
+    // $('.socialBTN').each(function() {
+    //     var social = $(this).outerWidth(),
+    //         ulWidth = $(this).children('ul').outerWidth();
+    //     if (width >= 1024) {
+    //         $(this).children('.fb-like-iframe').css({
+    //             'width': social - ulWidth - 3
+    //         });
+    //     }
+    // });
     $('.author .author-txt').each(function() {
         var txt = '',
             length = $(this).children().length;
@@ -96,12 +126,12 @@ $(function() {
                 $("header").removeClass('scroll');
                 $(".menu").show();
             }
-            if ((scroll > articleTitleTop) && (width < 1024)) {
+            if ((scroll > articleTitleTop)) {
                 $(".socialBTN").addClass('show');
-                console.log('a');
+                // console.log('a');
             } else {
                 $(".socialBTN").removeClass('show');
-                console.log('n');
+                // console.log('n');
             }
         });
     });
